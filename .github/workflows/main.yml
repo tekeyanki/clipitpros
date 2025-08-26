@@ -19,13 +19,13 @@ jobs:
         dotnet-version: '8.0.x'
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ClipProject.csproj
       
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build ClipProject.csproj --no-restore --configuration Release
       
     - name: Publish
-      run: dotnet publish -c Release -o ./publish
+      run: dotnet publish ClipProject.csproj -c Release -o ./publish
       
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v1.0.3
